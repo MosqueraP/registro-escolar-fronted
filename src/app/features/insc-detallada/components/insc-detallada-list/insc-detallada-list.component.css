@@ -1,0 +1,19 @@
+.contenedor-principal {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 16px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.05);
+}
+
+.botones-accion {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 16px;
+}
+
+mat-form-field {
+  min-width: 240px;
+}

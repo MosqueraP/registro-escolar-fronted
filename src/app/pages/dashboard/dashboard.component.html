@@ -1,0 +1,10 @@
+<div class="contenedor-base">
+  <h2>Dashboard</h2>
+
+  <div class="dashboard-grid">
+    <mat-card *ngFor="let item of resumen">
+      <mat-card-title>{{ item.label }} <mat-icon>{{ item.icon }}</mat-icon></mat-card-title>
+      <mat-card-content><h2>{{ item.total }}</h2></mat-card-content>
+    </mat-card>
+  </div>
+</div>

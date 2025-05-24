@@ -1,0 +1,15 @@
+.acciones-superiores {
+  display: flex;
+  justify-content: flex-start;
+  margin-bottom: 16px;
+}
+
+.tabla-responsive {
+  overflow-x: auto;
+  display: block;
+  width: 100%;
+}
+
+button[mat-icon-button] {
+  margin: 0 4px;
+}

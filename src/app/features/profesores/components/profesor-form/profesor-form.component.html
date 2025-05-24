@@ -1,0 +1,48 @@
+<mat-card>
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <mat-form-field class="full-width">
+      <mat-label>Nombre</mat-label>
+      <input matInput formControlName="nombre" />
+    </mat-form-field>
+
+    <mat-form-field class="full-width">
+      <mat-label>Apellido</mat-label>
+      <input matInput formControlName="apellido" />
+    </mat-form-field>
+
+    <mat-form-field class="full-width">
+      <mat-label>Email</mat-label>
+      <input matInput formControlName="email" />
+    </mat-form-field>
+
+    <mat-form-field class="full-width">
+      <mat-label>Teléfono</mat-label>
+      <input matInput formControlName="telefono" />
+    </mat-form-field>
+
+    <mat-form-field class="full-width">
+    <mat-label>Fecha Nacimiento</mat-label>
+      <input matInput [matDatepicker]="pickerNacimiento" formControlName="fechaNacimiento" />
+      <mat-datepicker-toggle matSuffix [for]="pickerNacimiento"></mat-datepicker-toggle>
+      <mat-datepicker #pickerNacimiento></mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field class="full-width">
+      <mat-label>Especialidad</mat-label>
+      <input matInput formControlName="especialidad" />
+    </mat-form-field>
+
+    <mat-form-field class="full-width">
+      <mat-label>Fecha Contratación</mat-label>
+      <input matInput [matDatepicker]="pickerContratacion" formControlName="fechaContratacion" />
+      <mat-datepicker-toggle matSuffix [for]="pickerContratacion"></mat-datepicker-toggle>
+      <mat-datepicker #pickerContratacion></mat-datepicker>
+    </mat-form-field>
+
+
+    <div class="botones">
+      <button mat-raised-button color="primary" type="submit">Guardar</button>
+      <button mat-button type="button" (click)="cancelar()">Cancelar</button>
+    </div>
+  </form>
+</mat-card>

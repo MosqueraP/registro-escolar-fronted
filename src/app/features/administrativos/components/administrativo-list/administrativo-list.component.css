@@ -1,0 +1,10 @@
+.acciones-superiores {
+  display: flex;
+  justify-content: flex-end;
+  margin: 10px 40px 20px 40px;
+}
+
+.tabla-container {
+  padding: 0 40px 20px 40px;
+  overflow-x: auto;
+}

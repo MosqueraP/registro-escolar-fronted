@@ -1,0 +1,50 @@
+/* Contenedor general */
+.contenedor-base {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 24px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+}
+
+/* Botón superior */
+.acciones-superiores {
+  display: flex;
+  justify-content: flex-start;
+  margin-bottom: 16px;
+}
+
+/* Tabla responsive */
+.tabla-responsive {
+  width: 100%;
+  overflow-x: auto;
+  display: block;
+}
+
+/* Tabla Material extra */
+table {
+  width: 100%;
+  border-spacing: 0;
+}
+
+/* Estilo para íconos con botones */
+button[mat-icon-button] {
+  margin: 0 4px;
+}
+
+/* Tooltip claro para buena accesibilidad */
+.mat-tooltip {
+  font-size: 12px;
+}
+
+/* Responsive para pantallas pequeñas */
+@media (max-width: 768px) {
+  .contenedor-base {
+    padding: 16px;
+  }
+
+  .tabla-responsive table {
+    min-width: 700px; /* permite scroll horizontal en móvil */
+  }
+}

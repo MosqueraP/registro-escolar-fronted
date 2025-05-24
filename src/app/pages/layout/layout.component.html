@@ -1,0 +1,31 @@
+<mat-sidenav-container class="dashboard-container">
+  <mat-sidenav #sidenav [mode]="isMobile ? 'over' : 'side'" [opened]="!isMobile" class="sidenav">
+    <mat-toolbar color="primary">
+      <span *ngIf="!isMobile">Sistema Escolar</span>
+    </mat-toolbar>
+    <mat-nav-list>
+      <a mat-list-item routerLink="/dashboard" (click)="onLinkClick()">Dashboard</a>
+      <a mat-list-item routerLink="/personas" (click)="onLinkClick()">Personas</a>
+      <a mat-list-item routerLink="/estudiantes" (click)="onLinkClick()">Estudiantes</a>
+      <a mat-list-item routerLink="/profesores" (click)="onLinkClick()">Profesores</a>
+      <a mat-list-item routerLink="/administrativos" (click)="onLinkClick()">Administrativos</a>
+      <a mat-list-item routerLink="/cursos" (click)="onLinkClick()">Cursos</a>
+      <a mat-list-item routerLink="/inscripciones" (click)="onLinkClick()">Inscripciones</a>
+      <a mat-list-item routerLink="/inscripciones-detalladas" (click)="onLinkClick()">Insc Detalladas</a>
+    </mat-nav-list>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
+      <button *ngIf="isMobile" mat-icon-button (click)="sidenav.toggle()">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <span>Sistema Escolar</span>
+    </mat-toolbar>
+
+    <!-- componente principal -->
+    <div class="contenido-scroll">
+      <router-outlet></router-outlet>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

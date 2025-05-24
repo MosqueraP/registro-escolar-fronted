@@ -7,22 +7,31 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "serve:ssr:escolar-frontend": "node dist/escolar-frontend/server/server.mjs"
+    "serve:ssr:escolar-frontend": "node dist/escolar-frontend/server/server.mjs",
+    "dev:ssr": "ng run escolar-frontend:serve-ssr",
+    "build:ssr": "ng build --configuration production && ng run escolar-frontend:server:production",
+    "serve:ssr": "node dist/escolar-frontend/server/main.js"
   },
   "private": true,
   "dependencies": {
+    "@angular/cdk": "^19.2.17",
     "@angular/common": "^19.2.0",
     "@angular/compiler": "^19.2.0",
     "@angular/core": "^19.2.0",
     "@angular/forms": "^19.2.0",
+    "@angular/material": "^19.2.17",
     "@angular/platform-browser": "^19.2.0",
     "@angular/platform-browser-dynamic": "^19.2.0",
     "@angular/platform-server": "^19.2.0",
     "@angular/router": "^19.2.0",
     "@angular/ssr": "^19.2.13",
     "express": "^4.18.2",
+    "file-saver": "^2.0.5",
+    "jspdf": "^3.0.1",
+    "jspdf-autotable": "^5.0.2",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
+    "xlsx": "0.18.5",
     "zone.js": "~0.15.0"
   },
   "devDependencies": {
@@ -30,14 +39,16 @@
     "@angular/cli": "^19.2.13",
     "@angular/compiler-cli": "^19.2.0",
     "@types/express": "^4.17.17",
+    "@types/file-saver": "^2.0.7",
     "@types/jasmine": "~5.1.0",
     "@types/node": "^18.18.0",
     "jasmine-core": "~5.6.0",
-    "karma": "~6.4.0",
+    "karma": "^6.4.4",
     "karma-chrome-launcher": "~3.2.0",
     "karma-coverage": "~2.2.0",
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.1.0",
+    "rimraf": "^6.0.1",
     "typescript": "~5.7.2"
   }
 }

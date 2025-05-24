@@ -1,0 +1,8 @@
+.tabla-responsive {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.acciones-superiores {
+  margin-bottom: 16px;
+}

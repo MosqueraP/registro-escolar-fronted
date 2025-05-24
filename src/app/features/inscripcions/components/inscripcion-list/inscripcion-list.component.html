@@ -1,0 +1,47 @@
+<div class="contenedor-base">
+  <h2>Lista de Inscripciones</h2>
+
+  <div class="acciones-superiores">
+    <button mat-raised-button color="primary" (click)="agregar()">+ Agregar Inscripción</button>
+  </div>
+
+  <div class="tabla-responsive">
+<table mat-table [dataSource]="inscripciones" class="mat-elevation-z2 tabla-ajustada">
+      <!-- columnas -->
+      <ng-container matColumnDef="idInscripcion">
+        <th mat-header-cell *matHeaderCellDef>ID</th>
+        <td mat-cell *matCellDef="let i">{{ i.idInscripcion }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="idEstudiante">
+        <th mat-header-cell *matHeaderCellDef>Estudiante</th>
+        <td mat-cell *matCellDef="let i">{{ i.idEstudiante }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="idCurso">
+        <th mat-header-cell *matHeaderCellDef>Curso</th>
+        <td mat-cell *matCellDef="let i">{{ i.idCurso }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="fechaInscripcion">
+        <th mat-header-cell *matHeaderCellDef>Fecha</th>
+        <td mat-cell *matCellDef="let i">{{ i.fechaInscripcion }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="acciones">
+      <th mat-header-cell *matHeaderCellDef>Acciones</th>
+      <td mat-cell *matCellDef="let a">
+        <button mat-icon-button color="primary" (click)="editar(a.idInscripcion)">
+          <mat-icon>edit</mat-icon>
+        </button>
+        <button mat-icon-button color="warn" (click)="eliminar(a.id)">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </td>
+    </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  </div>
+</div>

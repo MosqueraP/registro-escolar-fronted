@@ -1,0 +1,73 @@
+<div class="contenedor-base">
+  <h2>Lista de Estudiantes</h2>
+
+  <div class="acciones-superiores">
+    <button mat-raised-button color="primary" (click)="agregar()">+ Agregar Estudiante</button>
+  </div>
+
+  <div class="tabla-responsive">
+    <table mat-table [dataSource]="estudiantes" class="mat-elevation-z2" style="min-width: 800px;">
+
+      <!-- Columnas -->
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef>ID</th>
+        <td mat-cell *matCellDef="let est">{{ est.id }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="nombre">
+        <th mat-header-cell *matHeaderCellDef>Nombre</th>
+        <td mat-cell *matCellDef="let est">{{ est.nombre }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="apellido">
+        <th mat-header-cell *matHeaderCellDef>Apellido</th>
+        <td mat-cell *matCellDef="let est">{{ est.apellido }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="email">
+        <th mat-header-cell *matHeaderCellDef>Email</th>
+        <td mat-cell *matCellDef="let est">{{ est.email }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="telefono">
+        <th mat-header-cell *matHeaderCellDef>Teléfono</th>
+        <td mat-cell *matCellDef="let est">{{ est.telefono }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="fechaNacimiento">
+        <th mat-header-cell *matHeaderCellDef>F. Nac.</th>
+        <td mat-cell *matCellDef="let est">{{ est.fechaNacimiento | date: 'yyyy-MM-dd' }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="numeroMatricula">
+        <th mat-header-cell *matHeaderCellDef>Matrícula</th>
+        <td mat-cell *matCellDef="let est">{{ est.numeroMatricula }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="grado">
+        <th mat-header-cell *matHeaderCellDef>Grado</th>
+        <td mat-cell *matCellDef="let est">{{ est.grado }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="acciones">
+        <th mat-header-cell *matHeaderCellDef>Acciones</th>
+        <td mat-cell *matCellDef="let est">
+          <button mat-icon-button color="primary" matTooltip="Editar" (click)="editar(est.id)">
+            <mat-icon>edit</mat-icon>
+          </button>
+          <button mat-icon-button color="warn" matTooltip="Eliminar" (click)="eliminar(est.id)">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </td>
+      </ng-container>
+
+      <!-- Filas -->
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  </div>
+
+  <div *ngIf="estudiantes.length === 0" style="padding: 1rem; text-align: center;">
+    No hay estudiantes registrados.
+  </div>
+</div>

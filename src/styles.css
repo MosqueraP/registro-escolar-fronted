@@ -1,1 +1,36 @@
-/* You can add global styles to this file, and also import other style files */
+/* src/styles.css */
+
+/* Reset y configuración global */
+html, body {
+  margin: 0;
+  height: 100%;
+  font-family: 'Roboto', sans-serif;
+  background-color: #f5f5f5;
+}
+
+/* Contenedor reutilizable para vistas */
+.contenedor-base {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 24px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+}
+
+.contenedor-base {
+  margin: 0 auto;
+  padding: 16px;
+}
+
+/* Scroll horizontal para tablas */
+.tabla-responsive {
+  width: 100%;
+  overflow-x: auto;
+}
+
+/* .flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+} */

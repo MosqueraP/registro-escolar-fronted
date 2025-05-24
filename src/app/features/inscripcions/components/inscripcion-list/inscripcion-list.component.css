@@ -1,0 +1,10 @@
+.tabla-ajustada {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.tabla-responsive {
+  overflow-x: auto;
+  display: block;
+  width: 100%;
+}

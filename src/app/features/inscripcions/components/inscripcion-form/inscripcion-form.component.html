@@ -1,0 +1,33 @@
+<div class="contenedor-base">
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <mat-form-field appearance="fill" class="form-field">
+      <mat-label>Estudiante*</mat-label>
+      <mat-select formControlName="idEstudiante" required>
+        <mat-option *ngFor="let estudiante of estudiantes" [value]="estudiante.id">
+          {{ estudiante.nombre }} {{ estudiante.apellido }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="form-field">
+      <mat-label>Curso*</mat-label>
+      <mat-select formControlName="idCurso" required>
+        <mat-option *ngFor="let curso of cursos" [value]="curso.idCurso">
+          {{ curso.nombre }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="form-field">
+      <mat-label>Fecha de Inscripción*</mat-label>
+      <input matInput [matDatepicker]="picker" formControlName="fechaInscripcion" />
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+
+    <div class="acciones-formulario">
+      <button mat-raised-button color="primary" type="submit">Guardar</button>
+      <button mat-button type="button" (click)="cancelar()">Cancelar</button>
+    </div>
+  </form>
+</div>

@@ -1,12 +1,17 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { environment } from 'environments/environment';
+// import { environment } from 'src/environments/environment';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class PersonaService {
-  private apiUrl = 'http://localhost:8080/api/personas';
+  // private apiUrl = 'http://localhost:8080/api/personas';
+  private apiUrl = `${environment.apiUrl}/personas`;
+
 
   constructor(private http: HttpClient) {}
 

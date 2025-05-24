@@ -10,9 +10,10 @@ import { FormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import * as XLSX from 'xlsx';
-import * as FileSaver from 'file-saver';
 import jsPDF from 'jspdf';
 import autoTable from 'jspdf-autotable';
+import * as ExcelJS from 'exceljs';
+import * as FileSaver from 'file-saver';
 
 
 @Component({
@@ -70,11 +71,27 @@ export class InscripcionDetalladaListComponent implements OnInit {
 
   // exrportar data de inscripciones a excel
   exportarAExcel(): void {
-  const worksheet = XLSX.utils.json_to_sheet(this.inscripciones);
-  const workbook = { Sheets: { 'Inscripciones': worksheet }, SheetNames: ['Inscripciones'] };
-  const excelBuffer: any = XLSX.write(workbook, { bookType: 'xlsx', type: 'array' });
-  const data: Blob = new Blob([excelBuffer], { type: 'application/octet-stream' });
-  FileSaver.saveAs(data, `inscripciones_detalladas_${new Date().toISOString().slice(0, 10)}.xlsx`);
+  const workbook = new ExcelJS.Workbook();
+  const worksheet = workbook.addWorksheet('Inscripciones');
+
+  worksheet.columns = [
+    { header: 'ID', key: 'idInscripcion', width: 10 },
+    { header: 'Estudiante', key: 'nombreEstudiante', width: 30 },
+    { header: 'Curso', key: 'nombreCurso', width: 30 },
+    { header: 'Fecha', key: 'fechaInscripcion', width: 20 }
+  ];
+
+  this.inscripciones.forEach(insc => {
+    worksheet.addRow(insc);
+  });
+
+  workbook.xlsx.writeBuffer().then((buffer) => {
+    const blob = new Blob([buffer], {
+      type:
+        'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
+    });
+    FileSaver.saveAs(blob, `inscripciones_detalladas_${new Date().toISOString().slice(0, 10)}.xlsx`);
+  });
 }
 
   // exrportar data de inscripciones a Pdf

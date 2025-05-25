@@ -7,7 +7,7 @@
     "build": "ng build --configuration production",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "postbuild": "copy static.json dist/escolar-frontend\\static.json"
+    "postbuild": "cp static.json dist/escolar-frontend/static.json"
   },
   "private": true,
   "dependencies": {

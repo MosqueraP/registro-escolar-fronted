@@ -7,7 +7,7 @@
     "build": "ng build --configuration production",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "postbuild": "cp static.json dist/escolar-frontend/static.json"
+    "postbuild": "shx cp static.json dist/escolar-frontend/static.json"
   },
   "private": true,
   "dependencies": {
@@ -45,6 +45,7 @@
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.1.0",
     "rimraf": "^6.0.1",
+    "shx": "^0.4.0",
     "typescript": "~5.7.2"
   }
 }

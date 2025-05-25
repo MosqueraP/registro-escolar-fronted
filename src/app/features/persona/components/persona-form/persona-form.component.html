@@ -1,49 +1,48 @@
 <mat-card>
-  <h2>{{ editMode ? 'Editar Estudiante' : 'Crear Estudiante' }}</h2>
+  <h2>{{ editMode ? 'Editar Persona' : 'Crear Persona' }}</h2>
 
   <form [formGroup]="form" (ngSubmit)="onSubmit()">
 
     <!-- Nombre -->
-    <mat-form-field appearance="fill" class="form-field">
+    <mat-form-field appearance="fill" class="full-width">
       <mat-label>Nombre</mat-label>
       <input matInput formControlName="nombre" required />
     </mat-form-field>
 
     <!-- Apellido -->
-    <mat-form-field appearance="fill" class="form-field">
+    <mat-form-field appearance="fill" class="full-width">
       <mat-label>Apellido</mat-label>
       <input matInput formControlName="apellido" required />
     </mat-form-field>
 
     <!-- Email -->
-    <mat-form-field appearance="fill" class="form-field">
+    <mat-form-field appearance="fill" class="full-width">
       <mat-label>Email</mat-label>
       <input matInput type="email" formControlName="email" required />
     </mat-form-field>
 
     <!-- Teléfono -->
-    <mat-form-field appearance="fill" class="form-field">
+    <mat-form-field appearance="fill" class="full-width">
       <mat-label>Teléfono</mat-label>
       <input matInput formControlName="telefono" />
     </mat-form-field>
 
-    <!-- Fecha Nacimiento con datepicker -->
-    <mat-form-field class="full-width">
+    <!-- Fecha Nacimiento -->
+    <mat-form-field appearance="fill" class="full-width">
       <mat-label>Fecha Nacimiento</mat-label>
       <input matInput [matDatepicker]="picker" formControlName="fechaNacimiento" />
       <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
       <mat-datepicker #picker></mat-datepicker>
-  </mat-form-field>
-
+    </mat-form-field>
 
     <!-- Matrícula -->
-    <mat-form-field appearance="fill" class="form-field">
+    <mat-form-field appearance="fill" class="full-width">
       <mat-label>Matrícula</mat-label>
       <input matInput formControlName="numeroMatricula" required />
     </mat-form-field>
 
     <!-- Grado -->
-    <mat-form-field appearance="fill" class="form-field">
+    <mat-form-field appearance="fill" class="full-width">
       <mat-label>Grado</mat-label>
       <input matInput formControlName="grado" required />
     </mat-form-field>
@@ -51,7 +50,7 @@
     <!-- Botones -->
     <div class="acciones-formulario">
       <button mat-raised-button color="primary" type="submit">Guardar</button>
-      <button mat-button color="warn" routerLink="/estudiantes">Cancelar</button>
+      <button mat-button color="warn" type="button" routerLink="/personas">Cancelar</button>
     </div>
   </form>
 </mat-card>

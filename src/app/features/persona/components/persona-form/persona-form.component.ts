@@ -45,14 +45,18 @@ export class PersonaFormComponent implements OnInit {
       apellido: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
       telefono: [''],
-      fechaNacimiento: ['']
+      fechaNacimiento: [''],
+      numeroMatricula: ['', Validators.required],
+      grado: ['', Validators.required]
     });
 
     const id = this.route.snapshot.paramMap.get('id');
     if (id) {
       this.editMode = true;
       this.personaId = +id;
-      this.service.getById(this.personaId).subscribe(persona => this.form.patchValue(persona));
+      this.service.getById(this.personaId).subscribe(persona => {
+        this.form.patchValue(persona);
+      });
     }
   }
 
@@ -60,10 +64,15 @@ export class PersonaFormComponent implements OnInit {
     if (this.form.invalid) return;
 
     const persona = this.form.value;
+
     if (this.editMode && this.personaId) {
-      this.service.update(this.personaId, persona).subscribe(() => this.router.navigate(['/personas']));
+      this.service.update(this.personaId, persona).subscribe(() => {
+        this.router.navigate(['/personas']);
+      });
     } else {
-      this.service.create(persona).subscribe(() => this.router.navigate(['/personas']));
+      this.service.create(persona).subscribe(() => {
+        this.router.navigate(['/personas']);
+      });
     }
   }
 }

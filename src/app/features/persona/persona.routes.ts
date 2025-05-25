@@ -9,12 +9,12 @@ export const PERSONA_ROUTES: Routes = [
   {
     path: 'nueva',
     loadComponent: () =>
-      import('./components/persona-list/persona-list.component').then(m => m.PersonaFormComponent)
+      import('./components/persona-form/persona-form.component').then(m => m.PersonaFormComponent)
   },
   {
     path: 'editar/:id',
     loadComponent: () =>
-      import('./components/persona-list/persona-list.component').then(m => m.PersonaFormComponent),
+      import('./components/persona-form/persona-form.component').then(m => m.PersonaFormComponent),
     data: { prerender: false }
   }
 ];

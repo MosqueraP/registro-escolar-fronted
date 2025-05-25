@@ -13,7 +13,7 @@ export const routes: Routes = [
       { path: 'dashboard', loadComponent: () => import('./pages/dashboard/dashboard.component').then(m => m.DashboardComponent) },
       {
         path: 'personas',
-        loadChildren: () => import('./persona/persona.routes').then(m => m.PERSONA_ROUTES)
+        loadChildren: () => import('./features/persona/persona.routes').then(m => m.PERSONA_ROUTES)
       },
      { path: 'estudiantes', loadChildren: () => import('./features/estudiantes/estudiante.routes').then(m => m.ESTUDIANTE_ROUTES) },
 

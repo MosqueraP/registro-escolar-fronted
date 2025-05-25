@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
@@ -23,7 +23,8 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
     MatCardModule,
     MatButtonModule,
     MatNativeDateModule,
-    MatDatepickerModule
+    MatDatepickerModule,
+    RouterModule
   ]
 })
 export class ProfesorFormComponent implements OnInit {

@@ -1,4 +1,4 @@
-<div class="contenedor-base">
+<mat-card>
   <h2>{{ editMode ? 'Editar Estudiante' : 'Crear Estudiante' }}</h2>
 
   <form [formGroup]="form" (ngSubmit)="onSubmit()">
@@ -54,4 +54,4 @@
       <button mat-button color="warn" routerLink="/estudiantes">Cancelar</button>
     </div>
   </form>
-</div>
+</mat-card>
